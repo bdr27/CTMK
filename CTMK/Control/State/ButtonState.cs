@@ -1,14 +1,14 @@
 ﻿
-namespace CTMK.Control.Utility
+namespace CTMK.Control.State
 {
-    public class Button
+    public class ButtonState
     {
 
         private string name;
         private bool down = false;
         private bool released = false;
 
-        public Button(string name)
+        public ButtonState(string name)
         {
             this.name = name;
         }

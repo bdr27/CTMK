@@ -1,5 +1,7 @@
 ﻿
-namespace CTMK.Control.State
+using SlimDX.XInput;
+
+namespace CTMK.Control.CTState
 {
     public class ButtonState
     {
@@ -7,10 +9,12 @@ namespace CTMK.Control.State
         private string name;
         private bool down = false;
         private bool released = false;
+        private GamepadButtonFlags gamepadButtonFlags;
 
-        public ButtonState(string name)
+        public ButtonState(string name, GamepadButtonFlags gamepadButtonFlags)
         {
             this.name = name;
+            this.gamepadButtonFlags = gamepadButtonFlags;
         }
 
         public string GetName()
@@ -26,13 +30,21 @@ namespace CTMK.Control.State
 
         public void ButtonUp()
         {
-            down = false;
-            released = true;
+            if (down == true)
+            {
+                down = false;
+                released = true;
+            }            
         }
 
         public bool GetDown()
         {
             return down;
+        }
+
+        public GamepadButtonFlags GetGamepadButtonFlags()
+        {
+            return gamepadButtonFlags;
         }
 
         public bool GetReleased()

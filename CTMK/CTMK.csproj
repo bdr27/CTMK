@@ -49,10 +49,10 @@
   <ItemGroup>
     <Compile Include="Control\Type\IController.cs" />
     <Compile Include="Control\Type\XIControl.cs" />
-    <Compile Include="Control\State\ButtonState.cs" />
-    <Compile Include="Control\State\DPadState.cs" />
-    <Compile Include="Control\State\ThumbstickState.cs" />
-    <Compile Include="Control\State\TriggerState.cs" />
+    <Compile Include="Control\CTState\ButtonState.cs" />
+    <Compile Include="Control\CTState\DPadState.cs" />
+    <Compile Include="Control\CTState\ThumbstickState.cs" />
+    <Compile Include="Control\CTState\TriggerState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ButtonUtil.cs" />

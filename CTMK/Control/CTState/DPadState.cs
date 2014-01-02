@@ -1,7 +1,8 @@
 ﻿
 using CTMK.Utility;
+using SlimDX.XInput;
 using System.Collections.Generic;
-namespace CTMK.Control.State
+namespace CTMK.Control.CTState
 {
     public class DPadState
     {
@@ -15,10 +16,10 @@ namespace CTMK.Control.State
         public DPadState(string name)
         {
             this.name = name;
-            up = new ButtonState("UP");
-            down = new ButtonState("DOWN");
-            left = new ButtonState("LEFT");
-            right = new ButtonState("RIGHT");
+            up = new ButtonState("UP", GamepadButtonFlags.DPadUp);
+            down = new ButtonState("DOWN", GamepadButtonFlags.DPadDown);
+            left = new ButtonState("LEFT", GamepadButtonFlags.DPadLeft);
+            right = new ButtonState("RIGHT", GamepadButtonFlags.DPadRight);
             buttons = ButtonUtil.GetListButtons(up, down, left, right);
         }
 

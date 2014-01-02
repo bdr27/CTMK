@@ -1,6 +1,7 @@
 ﻿using SlimDX;
+using SlimDX.XInput;
 
-namespace CTMK.Control.State
+namespace CTMK.Control.CTState
 {
     public class ThumbstickState
     {
@@ -8,10 +9,10 @@ namespace CTMK.Control.State
         private Vector2 position;
         private ButtonState click;
 
-        public ThumbstickState(string name)
+        public ThumbstickState(string name, GamepadButtonFlags gamepadButtonFlags)
         {
             this.name = name;
-            click = new ButtonState(name);
+            click = new ButtonState(name, gamepadButtonFlags);
         }
 
         public string GetName()

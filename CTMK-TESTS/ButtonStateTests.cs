@@ -1,4 +1,4 @@
-﻿using CTMK.Control.State;
+﻿using CTMK.Control.CTState;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CTMK_TESTS

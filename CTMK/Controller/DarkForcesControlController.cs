@@ -2,11 +2,14 @@
 using System;
 using WindowsInput.Native;
 
+/*TODO add esc as START
+Left and Right bumpers need to be used to cycle through weapons so keys from 1 to something probably 6. Will be a bit dodgy but no other solution
+*/
 namespace CTMK.Controller
 {
-    public class BasicControlController : ControllerTemplate
+    public class DarkForcesControlController : ControllerTemplate
     {
-        public BasicControlController(IController control)
+        public DarkForcesControlController(IController control)
             : base(control)
         {
             foreach (var trigger in triggers)

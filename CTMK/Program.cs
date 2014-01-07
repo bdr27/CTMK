@@ -10,7 +10,7 @@ namespace CTMK
         static void Main(string[] args)
         {
             IController control = new XIControl(UserIndex.One);
-            ControllerTemplate ct = new BasicControlController(control);
+            ControllerTemplate ct = new DarkForcesControlController(control);
             ct.Run();
             var input = "";
             do

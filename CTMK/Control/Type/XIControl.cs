@@ -13,7 +13,7 @@ namespace CTMK.Control.Type
         private uint lastPacket;
 
         private readonly UserIndex userIndex;
-        private readonly Controller controller;
+        private readonly SlimDX.XInput.Controller controller;
 
         private DPadState dPad;
         private ThumbstickState leftThumbStick;
@@ -42,7 +42,7 @@ namespace CTMK.Control.Type
         public XIControl(UserIndex userIndex)
         {
             this.userIndex = userIndex;
-            this.controller = new Controller(userIndex);
+            this.controller = new SlimDX.XInput.Controller(userIndex);
 
             //Sets up face buttons
             a = new ButtonState("A", GamepadButtonFlags.A);

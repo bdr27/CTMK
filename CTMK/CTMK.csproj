@@ -47,6 +47,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\BasicControlController.cs" />
+    <Compile Include="Controller\ControllerTemplate.cs" />
     <Compile Include="Control\Type\IController.cs" />
     <Compile Include="Control\Type\XIControl.cs" />
     <Compile Include="Control\CTState\ButtonState.cs" />

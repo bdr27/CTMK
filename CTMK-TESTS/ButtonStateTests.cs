@@ -1,5 +1,6 @@
 ﻿using CTMK.Control.CTState;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SlimDX.XInput;
 
 namespace CTMK_TESTS
 {
@@ -10,7 +11,7 @@ namespace CTMK_TESTS
         public void ButtonStateNameTest()
         {
             string name = "X";
-            ButtonState button = new ButtonState(name);
+            ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
             Assert.AreEqual(button.GetName(), name);
             Assert.IsFalse(button.GetDown());
             Assert.IsFalse(button.GetReleased());
@@ -20,7 +21,7 @@ namespace CTMK_TESTS
         public void ButtonStateDownTest()
         {
             string name = "X";
-            ButtonState button = new ButtonState(name);
+            ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
             button.ButtonDown();
             Assert.IsTrue(button.GetDown());
             Assert.IsFalse(button.GetReleased());
@@ -30,7 +31,7 @@ namespace CTMK_TESTS
         public void ButtonStateReleasedTest()
         {
             string name = "X";
-            ButtonState button = new ButtonState(name);
+            ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
             button.ButtonUp();
             Assert.IsFalse(button.GetDown());
             Assert.IsTrue(button.GetReleased());

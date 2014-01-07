@@ -8,11 +8,18 @@ namespace CTMK.Control.CTState
         private string name;
         private Vector2 position;
         private ButtonState click;
+        private DPadState dPad;
 
         public ThumbstickState(string name, GamepadButtonFlags gamepadButtonFlags)
         {
             this.name = name;
             click = new ButtonState(name, gamepadButtonFlags);
+            dPad = new DPadState(name);
+        }
+
+        public DPadState GetDpad()
+        {
+            return dPad;
         }
 
         public string GetName()

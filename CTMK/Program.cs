@@ -1,5 +1,6 @@
 ﻿
 using CTMK.Control.Type;
+using CTMK.Controller;
 using SlimDX.XInput;
 using System;
 namespace CTMK
@@ -9,7 +10,16 @@ namespace CTMK
         static void Main(string[] args)
         {
             IController control = new XIControl(UserIndex.One);
-            while (true)
+            ControllerTemplate ct = new BasicControlController(control);
+            ct.Run();
+            var input = "";
+            do
+            {
+                Console.WriteLine("Please enter q to quit");
+                input = Console.ReadLine().ToLower();
+            } while (input != "q");
+            ct.Stop();
+           /* while (true)
             {
                 control.Update();
                 var down = control.GetButtonsDown();
@@ -41,7 +51,7 @@ namespace CTMK
                 Console.WriteLine("LT: " + lt.GetValue() + " RT: " + rt.GetValue());
 
                 System.Threading.Thread.Sleep(1);
-            }
+            }*/
         }
     }
 }

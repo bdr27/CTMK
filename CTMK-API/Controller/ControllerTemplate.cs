@@ -1,11 +1,11 @@
-﻿using CTMK.Control.CTState;
-using CTMK.Control.Type;
+﻿using CTMK_API.Control.CTState;
+using CTMK_API.Control.Type;
 using System;
 using System.Collections.Generic;
 using System.Timers;
 using WindowsInput;
 
-namespace CTMK.Controller
+namespace CTMK_API.Controller
 {
     public abstract class ControllerTemplate
     {

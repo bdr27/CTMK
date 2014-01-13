@@ -1,8 +1,8 @@
 ﻿
-using CTMK.Utility;
+using CTMK_API.Utility;
 using SlimDX.XInput;
 using System.Collections.Generic;
-namespace CTMK.Control.CTState
+namespace CTMK_API.Control.CTState
 {
     public class DPadState
     {

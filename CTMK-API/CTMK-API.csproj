@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2FA58E47-343C-4E49-A9C5-1092B3D482E0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{DCAF97DD-98E6-46A7-8BA2-F36E8217AC3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CTMK</RootNamespace>
-    <AssemblyName>CTMK</AssemblyName>
+    <RootNamespace>CTMK_API</RootNamespace>
+    <AssemblyName>CTMK-API</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,10 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,33 +31,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SlimDX, Version=2.0.13.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=x86">
+    <Reference Include="SlimDX, Version=4.0.13.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\dev\c#\SlimDXSDK\Bin\net20\x86\SlimDX.dll</HintPath>
+      <HintPath>..\..\..\..\GitHub\CTMK\CTMK\libs\x86\SlimDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsInput, Version=0.2.0.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>libs\x86\WindowsInput.dll</HintPath>
+    <Reference Include="WindowsInput">
+      <HintPath>..\..\..\..\GitHub\CTMK\CTMK\libs\x86\WindowsInput.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Controller\ControllerTemplate.cs" />
+    <Compile Include="Controller\DarkForcesControlController.cs" />
+    <Compile Include="Control\CTState\AxisState.cs" />
+    <Compile Include="Control\CTState\ButtonState.cs" />
+    <Compile Include="Control\CTState\DPadState.cs" />
+    <Compile Include="Control\CTState\ThumbstickState.cs" />
+    <Compile Include="Control\CTState\TriggerState.cs" />
+    <Compile Include="Control\Type\DIControl.cs" />
+    <Compile Include="Control\Type\IController.cs" />
+    <Compile Include="Control\Type\XIControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CTMK-API\CTMK-API.csproj">
-      <Project>{dcaf97dd-98e6-46a7-8ba2-f36e8217ac3a}</Project>
-      <Name>CTMK-API</Name>
-    </ProjectReference>
+    <Compile Include="Utility\ButtonUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

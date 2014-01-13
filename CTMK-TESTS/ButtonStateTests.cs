@@ -1,4 +1,4 @@
-﻿using CTMK.Control.CTState;
+﻿using CTMK_API.Control.CTState;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SlimDX.XInput;
 

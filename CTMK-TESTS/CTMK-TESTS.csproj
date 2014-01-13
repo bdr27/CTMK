@@ -58,9 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CTMK\CTMK.csproj">
-      <Project>{2fa58e47-343c-4e49-a9c5-1092b3d482e0}</Project>
-      <Name>CTMK</Name>
+    <ProjectReference Include="..\CTMK-API\CTMK-API.csproj">
+      <Project>{dcaf97dd-98e6-46a7-8ba2-f36e8217ac3a}</Project>
+      <Name>CTMK-API</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -1,11 +1,11 @@
-﻿using CTMK.Control.Type;
+﻿using CTMK_API.Control.Type;
 using System;
 using WindowsInput.Native;
 
 /*TODO add esc as START
 Left and Right bumpers need to be used to cycle through weapons so keys from 1 to something probably 6. Will be a bit dodgy but no other solution
 */
-namespace CTMK.Controller
+namespace CTMK_API.Controller
 {
     public class DarkForcesControlController : ControllerTemplate
     {

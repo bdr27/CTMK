@@ -1,9 +1,9 @@
-﻿using CTMK.Control.CTState;
+﻿using CTMK_API.Control.CTState;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CTMK.Utility
+namespace CTMK_API.Utility
 {
     public static class ButtonUtil
     {

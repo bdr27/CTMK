@@ -1,12 +1,12 @@
-﻿using CTMK.Control.CTState;
-using CTMK.Utility;
+﻿using CTMK_API.Control.CTState;
+using CTMK_API.Utility;
 using SlimDX;
 using SlimDX.XInput;
 using System;
 using System.Collections.Generic;
 
 
-namespace CTMK.Control.Type
+namespace CTMK_API.Control.Type
 {
     public class XIControl : IController
     {

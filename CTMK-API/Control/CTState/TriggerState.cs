@@ -1,5 +1,5 @@
 ﻿
-namespace CTMK.Control.CTState
+namespace CTMK_API.Control.CTState
 {
     public class TriggerState
     {

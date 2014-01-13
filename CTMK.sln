@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTMK", "CTMK\CTMK.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTMK-TESTS", "CTMK-TESTS\CTMK-TESTS.csproj", "{22E2BC94-44E6-4B5A-AD4B-0C9AA314341D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTMK-API", "CTMK-API\CTMK-API.csproj", "{DCAF97DD-98E6-46A7-8BA2-F36E8217AC3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{22E2BC94-44E6-4B5A-AD4B-0C9AA314341D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E2BC94-44E6-4B5A-AD4B-0C9AA314341D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E2BC94-44E6-4B5A-AD4B-0C9AA314341D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCAF97DD-98E6-46A7-8BA2-F36E8217AC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAF97DD-98E6-46A7-8BA2-F36E8217AC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCAF97DD-98E6-46A7-8BA2-F36E8217AC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCAF97DD-98E6-46A7-8BA2-F36E8217AC3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

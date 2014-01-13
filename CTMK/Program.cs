@@ -1,6 +1,6 @@
 ﻿
-using CTMK.Control.Type;
-using CTMK.Controller;
+using CTMK_API.Control.Type;
+using CTMK_API.Controller;
 using SlimDX.DirectInput;
 using SlimDX.XInput;
 using System;

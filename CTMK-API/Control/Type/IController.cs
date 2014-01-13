@@ -1,7 +1,7 @@
-﻿using CTMK.Control.CTState;
+﻿using CTMK_API.Control.CTState;
 using System.Collections.Generic;
 
-namespace CTMK.Control.Type
+namespace CTMK_API.Control.Type
 {
     public interface IController
     {

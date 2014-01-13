@@ -89,7 +89,7 @@ namespace CTMK.Control.Type
             listButtonsUp.Clear();
 
             //if connected and different packet
-            if (!Connected() || controller.GetState().PacketNumber == lastPacket) return;
+            if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;            
 
             var gamepadState = controller.GetState().Gamepad;
             UpdateButtons(gamepadState.Buttons);
@@ -110,6 +110,10 @@ namespace CTMK.Control.Type
 
         private Vector2 Normalize(short rawX, short rawY, short threshold)
         {
+            long temp = rawX + 32768;
+            ushort uRawX = (ushort)temp;
+            //ushort uRaw = rawX + 32768
+            Console.WriteLine(uRawX);
             var value = new Vector2(rawX, rawY);
             var magnitude = value.Length();
             var direction = value / (magnitude == 0 ? 1 : magnitude);
@@ -146,11 +150,6 @@ namespace CTMK.Control.Type
             return thumbSticks;
         }
 
-        public bool Connected()
-        {
-            return controller.IsConnected;
-        }
-
         private void UpdateButtons(GamepadButtonFlags gamepadButtonFlags)
         {
             foreach (var button in buttons)
@@ -175,6 +174,15 @@ namespace CTMK.Control.Type
                     listButtonsUp.Add(buttonState.GetName());
                 }
             }
+        }
+
+        public bool Connect()
+        {
+            return controller.IsConnected;
+        }
+
+        public void Disconnect()
+        {
         }
     }
 }

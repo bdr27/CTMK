@@ -89,7 +89,9 @@ namespace CTMK_API.Control.Type
             listButtonsUp.Clear();
 
             //if connected and different packet
-            if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;            
+            if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;
+
+            lastPacket = controller.GetState().PacketNumber;
 
             var gamepadState = controller.GetState().Gamepad;
             UpdateButtons(gamepadState.Buttons);

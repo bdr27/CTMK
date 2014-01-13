@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SlimDX.XInput;
 
-namespace CTMK_TESTS
+namespace CTMK_TESTS.CTState
 {
     [TestClass]
     public class ButtonStateTests
@@ -32,6 +32,7 @@ namespace CTMK_TESTS
         {
             string name = "X";
             ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
+            button.ButtonDown();
             button.ButtonUp();
             Assert.IsFalse(button.GetDown());
             Assert.IsTrue(button.GetReleased());

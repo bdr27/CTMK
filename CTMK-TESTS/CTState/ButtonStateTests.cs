@@ -11,7 +11,7 @@ namespace CTMK_TESTS.CTState
         public void ButtonStateNameTest()
         {
             string name = "X";
-            ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
+            ButtonState button = new ButtonState(name);
             Assert.AreEqual(button.GetName(), name);
             Assert.IsFalse(button.GetDown());
             Assert.IsFalse(button.GetReleased());
@@ -21,7 +21,7 @@ namespace CTMK_TESTS.CTState
         public void ButtonStateDownTest()
         {
             string name = "X";
-            ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
+            ButtonState button = new ButtonState(name);
             button.ButtonDown();
             Assert.IsTrue(button.GetDown());
             Assert.IsFalse(button.GetReleased());
@@ -31,7 +31,7 @@ namespace CTMK_TESTS.CTState
         public void ButtonStateReleasedTest()
         {
             string name = "X";
-            ButtonState button = new ButtonState(name, GamepadButtonFlags.X);
+            ButtonState button = new ButtonState(name);
             button.ButtonDown();
             button.ButtonUp();
             Assert.IsFalse(button.GetDown());

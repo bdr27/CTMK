@@ -10,10 +10,10 @@ namespace CTMK_API.Control.CTState
         private ButtonState click;
         private DPadState dPad;
 
-        public ThumbstickState(string name, GamepadButtonFlags gamepadButtonFlags)
+        public ThumbstickState(string name)
         {
             this.name = name;
-            click = new ButtonState(name, gamepadButtonFlags);
+            click = new ButtonState(name);
             dPad = new DPadState(name);
         }
 

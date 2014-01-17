@@ -41,6 +41,10 @@
       <HintPath>..\..\..\..\..\..\dev\c#\SlimDXSDK\Bin\net20\x86\SlimDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="WindowsInput, Version=0.2.0.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CTMK\libs\x86\WindowsInput.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -55,9 +59,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Control\Type\ButtonControllerTest.cs" />
     <Compile Include="CTState\AxisStateTest.cs" />
     <Compile Include="CTState\ButtonStateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\XInputButtonFlagLookupTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CTMK-API\CTMK-API.csproj">

@@ -1,5 +1,7 @@
 ﻿
 using CTMK_API.Control;
+using CTMK_API.Control.Type;
+using CTMK_API.Controller;
 using System;
 
 namespace CTMK
@@ -12,7 +14,10 @@ namespace CTMK
             run.Execute();
             var controllers = run.ConnectedControllers();
 
-            Console.ReadKey();         
+            ControllerTemplate ct = new MOCKController(controllers[0]);
+            ct.Run();
+            Console.ReadKey();
+            ct.Stop();
         }
     }
 }

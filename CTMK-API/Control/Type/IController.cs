@@ -10,7 +10,7 @@ namespace CTMK_API.Control.Type
         void Update();
         List<string> GetButtonsDown();
         List<string> GetButtonsUp();
-        List<TriggerState> GetTriggers();
+        List<AxisState> GetAxises();
         List<ThumbstickState> GetThumbSticks();
     }
 }

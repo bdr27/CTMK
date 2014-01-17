@@ -33,7 +33,6 @@ namespace CTMK_API.Control.Type
         public void Update()
         {
             JoystickState state = new JoystickState();
-
             //Have to check if same packet somehow
             if (joy.Poll().IsFailure)
             {
@@ -111,7 +110,7 @@ namespace CTMK_API.Control.Type
             return up;
         }
 
-        public List<TriggerState> GetTriggers()
+        public List<AxisState> GetAxises()
         {
             throw new NotImplementedException();
         }

@@ -12,10 +12,10 @@ namespace CTMK_API.Controller
         public DarkForcesControlController(IController control)
             : base(control)
         {
-            foreach (var trigger in triggers)
+            /*foreach (var trigger in axises)
             {
                 trigger.SetActivationPoint(0.2f);
-            }
+            }*/
         }
 
         public override void PerformActions()
@@ -258,7 +258,7 @@ namespace CTMK_API.Controller
                 }
             }
 
-            foreach (var trigger in triggers)
+           /* foreach (var trigger in axises)
             {
                 trigger.UpdateTriggerState();
                 switch (trigger.GetName())
@@ -289,7 +289,7 @@ namespace CTMK_API.Controller
                         }
                         break;
                 }
-            }
+            }*/
         }
     }
 }

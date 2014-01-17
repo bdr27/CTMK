@@ -14,7 +14,7 @@ namespace CTMK_API.Controller
         protected List<string> buttonsDown;
         protected List<string> buttonsUp;
         protected List<ThumbstickState> thumbSticks;
-        protected List<TriggerState> triggers;
+        protected List<AxisState> axises;
         protected IKeyboardSimulator keyboard;
         protected IMouseSimulator mouse;
 
@@ -22,7 +22,7 @@ namespace CTMK_API.Controller
         {
             this.control = control;
             thumbSticks = control.GetThumbSticks();
-            triggers = control.GetTriggers();
+            axises = control.GetAxises();
             keyboard = new InputSimulator().Keyboard;
             mouse = new InputSimulator().Mouse;
             SetupTimer();
@@ -46,7 +46,7 @@ namespace CTMK_API.Controller
             buttonsDown = control.GetButtonsDown();
             buttonsUp = control.GetButtonsUp();
             thumbSticks = control.GetThumbSticks();
-            triggers = control.GetTriggers();
+            axises = control.GetAxises();
             PerformActions();
         }
 

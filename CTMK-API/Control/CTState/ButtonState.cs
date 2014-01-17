@@ -9,12 +9,11 @@ namespace CTMK_API.Control.CTState
         private string name;
         private bool down = false;
         private bool released = false;
-        private GamepadButtonFlags gamepadButtonFlags;
+        //private GamepadButtonFlags gamepadButtonFlags;
 
-        public ButtonState(string name, GamepadButtonFlags gamepadButtonFlags)
+        public ButtonState(string name)
         {
             this.name = name;
-            this.gamepadButtonFlags = gamepadButtonFlags;
         }
 
         public string GetName()
@@ -40,11 +39,6 @@ namespace CTMK_API.Control.CTState
         public bool GetDown()
         {
             return down;
-        }
-
-        public GamepadButtonFlags GetGamepadButtonFlags()
-        {
-            return gamepadButtonFlags;
         }
 
         public bool GetReleased()

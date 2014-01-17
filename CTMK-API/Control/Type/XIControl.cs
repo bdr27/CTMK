@@ -30,14 +30,17 @@ namespace CTMK_API.Control.Type
         private ButtonState start;
         private ButtonState back;
 
-        private TriggerState rightTrigger;
-        private TriggerState leftTrigger;
+        private AxisState rightTrigger;
+        private AxisState leftTrigger;
 
         private List<ButtonState> buttons;
+        private List<AxisState> axises;
         private List<string> listButtonsDown;
         private List<string> listButtonsUp;
-        private List<TriggerState> triggers;
+        //private List<TriggerState> triggers;
         private List<ThumbstickState> thumbSticks;
+
+        private Dictionary<string, GamepadButtonFlags> buttonFlags; 
 
         public XIControl(UserIndex userIndex)
         {
@@ -45,41 +48,44 @@ namespace CTMK_API.Control.Type
             this.controller = new SlimDX.XInput.Controller(userIndex);
 
             //Sets up face buttons
-            a = new ButtonState("A", GamepadButtonFlags.A);
-            b = new ButtonState("B", GamepadButtonFlags.B);
-            x = new ButtonState("X", GamepadButtonFlags.X);
-            y = new ButtonState("Y", GamepadButtonFlags.Y);
+            a = new ButtonState("A");
+            b = new ButtonState("B");
+            x = new ButtonState("X");
+            y = new ButtonState("Y");
 
             //Sets up the shoulder buttons
-            rightShoulder = new ButtonState("RS", GamepadButtonFlags.RightShoulder);
-            leftShoulder = new ButtonState("LS", GamepadButtonFlags.LeftShoulder);
+            rightShoulder = new ButtonState("RS");
+            leftShoulder = new ButtonState("LS");
 
             //Sets up start and select
-            start = new ButtonState("START", GamepadButtonFlags.Start);
-            back = new ButtonState("BACK", GamepadButtonFlags.Back);
+            start = new ButtonState("START");
+            back = new ButtonState("BACK");
 
             //Sets up left and right trigger
-            rightTrigger = new TriggerState("RT");
-            leftTrigger = new TriggerState("LT");
+            rightTrigger = new AxisState("RT");
+            leftTrigger = new AxisState("LT");
 
             //Sets up DPad
             dPad = new DPadState("DPAD");
 
             //Sets up Thumbstick
-            leftThumbStick = new ThumbstickState("LEFTSTICK", GamepadButtonFlags.LeftThumb);
-            rightThumbStick = new ThumbstickState("RIGHTSTICK", GamepadButtonFlags.RightThumb);
+            leftThumbStick = new ThumbstickState("LEFTSTICK");
+            rightThumbStick = new ThumbstickState("RIGHTSTICK");
 
             buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, dPad.GetDown(), dPad.GetLeft(), dPad.GetRight(), dPad.GetUp(), leftThumbStick.GetButton(), rightThumbStick.GetButton());
 
             listButtonsUp = new List<string>();
             listButtonsDown = new List<string>();
-            triggers = new List<TriggerState>();
+            axises = new List<AxisState>();
             thumbSticks = new List<ThumbstickState>();
 
-            triggers.Add(leftTrigger);
-            triggers.Add(rightTrigger);
+            axises.Add(leftTrigger);
+            axises.Add(rightTrigger);
+
             thumbSticks.Add(leftThumbStick);
             thumbSticks.Add(rightThumbStick);
+
+            buttonFlags = XInputButtonFlagLookup.ConvertButtons(buttons);
         }
 
         public void Update()
@@ -88,7 +94,7 @@ namespace CTMK_API.Control.Type
             listButtonsDown.Clear();
             listButtonsUp.Clear();
 
-            //if connected and different packet
+            //if connected and different packet only updates when control is changed 
             if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;
 
             lastPacket = controller.GetState().PacketNumber;
@@ -97,8 +103,8 @@ namespace CTMK_API.Control.Type
             UpdateButtons(gamepadState.Buttons);
 
             //Sets the triggers
-            UpdateTrigger(leftTrigger, gamepadState.LeftTrigger);
-            UpdateTrigger(rightTrigger, gamepadState.RightTrigger);
+            UpdateAxis(leftTrigger, gamepadState.LeftTrigger);
+            UpdateAxis(rightTrigger, gamepadState.RightTrigger);
 
             //Sets the thumbsticks
             UpdateThumbStick(leftThumbStick, Normalize(gamepadState.LeftThumbX, gamepadState.LeftThumbY, Gamepad.GamepadLeftThumbDeadZone));
@@ -127,9 +133,9 @@ namespace CTMK_API.Control.Type
             return direction * normalizedMagnitude;
         }
 
-        private void UpdateTrigger(TriggerState trigger, byte value)
+        private void UpdateAxis(AxisState axis, ushort value)
         {
-            trigger.SetValue(value / (float)byte.MaxValue);
+            axis.SetValue(value);
         }
 
         public List<string> GetButtonsDown()
@@ -142,9 +148,9 @@ namespace CTMK_API.Control.Type
             return listButtonsUp;
         }
 
-        public List<TriggerState> GetTriggers()
+        public List<AxisState> GetAxises()
         {
-            return triggers;
+            return axises;
         }
 
         public List<ThumbstickState> GetThumbSticks()
@@ -156,17 +162,28 @@ namespace CTMK_API.Control.Type
         {
             foreach (var button in buttons)
             {
-                ButtonState(button, gamepadButtonFlags);
+                ButtonState(button, buttonFlags[button.GetName()], gamepadButtonFlags);
             }
         }
 
-        private void ButtonState(ButtonState buttonState, GamepadButtonFlags buttonsDown)
+        private GamepadButtonFlags GetXInputButtonFlags(string name)
         {
-            if ((buttonsDown & buttonState.GetGamepadButtonFlags()) != 0)
+            GamepadButtonFlags button = new GamepadButtonFlags();
+            switch(name)
+            {
+                case "A":
+                    button = GamepadButtonFlags.A;
+                    break;
+            }
+            return button;
+        }
+
+        private void ButtonState(ButtonState buttonState, GamepadButtonFlags buttonFlag, GamepadButtonFlags buttonsDown)
+        {
+            if ((buttonsDown & buttonFlag) != 0)
             {
                 buttonState.ButtonDown();
                 listButtonsDown.Add(buttonState.GetName());
-
             }
             else
             {

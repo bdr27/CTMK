@@ -15,7 +15,7 @@ namespace CTMK_API.Control.Type
         private readonly UserIndex userIndex;
         private readonly SlimDX.XInput.Controller controller;
 
-        private DPadState dPad;
+        private PovState dPad;
         private ThumbstickState leftThumbStick;
         private ThumbstickState rightThumbStick;
 
@@ -29,6 +29,9 @@ namespace CTMK_API.Control.Type
 
         private ButtonState start;
         private ButtonState back;
+
+        private ButtonState leftThumbStickButton;
+        private ButtonState rightThumbStickButton;
 
         private AxisState rightTrigger;
         private AxisState leftTrigger;
@@ -57,6 +60,9 @@ namespace CTMK_API.Control.Type
             rightShoulder = new ButtonState("RS");
             leftShoulder = new ButtonState("LS");
 
+            leftThumbStickButton = new ButtonState("LT");
+            rightThumbStickButton = new ButtonState("RT");
+
             //Sets up start and select
             start = new ButtonState("START");
             back = new ButtonState("BACK");
@@ -66,13 +72,13 @@ namespace CTMK_API.Control.Type
             leftTrigger = new AxisState("LT");
 
             //Sets up DPad
-            dPad = new DPadState("DPAD");
+            dPad = new PovState("DPAD");
 
             //Sets up Thumbstick
             leftThumbStick = new ThumbstickState("LEFTSTICK");
             rightThumbStick = new ThumbstickState("RIGHTSTICK");
 
-            buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, dPad.GetDown(), dPad.GetLeft(), dPad.GetRight(), dPad.GetUp(), leftThumbStick.GetButton(), rightThumbStick.GetButton());
+            buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, leftThumbStickButton, rightThumbStickButton);
 
             listButtonsUp = new List<string>();
             listButtonsDown = new List<string>();
@@ -95,9 +101,12 @@ namespace CTMK_API.Control.Type
             listButtonsUp.Clear();
 
             //if connected and different packet only updates when control is changed 
-            if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;
+            //Ignore last packet as it only changes when there is a change in the controller state
 
-            lastPacket = controller.GetState().PacketNumber;
+            if (!Connect()) return;
+            //if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;
+
+            //lastPacket = controller.GetState().PacketNumber;
 
             var gamepadState = controller.GetState().Gamepad;
             UpdateButtons(gamepadState.Buttons);
@@ -120,8 +129,6 @@ namespace CTMK_API.Control.Type
         {
             long temp = rawX + 32768;
             ushort uRawX = (ushort)temp;
-            //ushort uRaw = rawX + 32768
-            Console.WriteLine(uRawX);
             var value = new Vector2(rawX, rawY);
             var magnitude = value.Length();
             var direction = value / (magnitude == 0 ? 1 : magnitude);
@@ -164,18 +171,6 @@ namespace CTMK_API.Control.Type
             {
                 ButtonState(button, buttonFlags[button.GetName()], gamepadButtonFlags);
             }
-        }
-
-        private GamepadButtonFlags GetXInputButtonFlags(string name)
-        {
-            GamepadButtonFlags button = new GamepadButtonFlags();
-            switch(name)
-            {
-                case "A":
-                    button = GamepadButtonFlags.A;
-                    break;
-            }
-            return button;
         }
 
         private void ButtonState(ButtonState buttonState, GamepadButtonFlags buttonFlag, GamepadButtonFlags buttonsDown)

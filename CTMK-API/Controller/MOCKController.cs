@@ -21,7 +21,7 @@ namespace CTMK_API.Controller
         {
             LoopThrough("Button Up", buttonsUp);
             LoopThrough("Button Down", buttonsDown);
-            LoopThrough(axises);
+            //LoopThrough(axises);
         }
 
         private void LoopThrough(string message, List<string> items)

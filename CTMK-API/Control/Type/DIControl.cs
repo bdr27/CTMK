@@ -9,15 +9,15 @@ namespace CTMK_API.Control.Type
     {
         private Joystick joy;
         private ButtonState[] buttons;
-        private TriggerState[] axis;
-        private DPadState[] pov;
+        private AxisState[] axis;
+        private PovState[] pov;
 
         public DIControl(Joystick joy)
         {
             this.joy = joy;
             buttons = new ButtonState[joy.Capabilities.ButtonCount];
-            axis = new TriggerState[joy.Capabilities.AxesCount];
-            pov = new DPadState[joy.Capabilities.PovCount];
+            axis = new AxisState[joy.Capabilities.AxesCount];
+            pov = new PovState[joy.Capabilities.PovCount];
         }
 
         public bool Connect()

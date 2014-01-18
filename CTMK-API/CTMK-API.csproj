@@ -49,9 +49,8 @@
     <Compile Include="Controller\MOCKController.cs" />
     <Compile Include="Control\CTState\AxisState.cs" />
     <Compile Include="Control\CTState\ButtonState.cs" />
-    <Compile Include="Control\CTState\DPadState.cs" />
+    <Compile Include="Control\CTState\PovState.cs" />
     <Compile Include="Control\CTState\ThumbstickState.cs" />
-    <Compile Include="Control\CTState\TriggerState.cs" />
     <Compile Include="Control\GetControllers.cs" />
     <Compile Include="Control\IExecute.cs" />
     <Compile Include="Control\Type\ButtonLookUp.cs" />

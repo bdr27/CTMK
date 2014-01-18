@@ -16,8 +16,6 @@ namespace CTMK_API.Control.Type
         private readonly SlimDX.XInput.Controller controller;
 
         private PovState dPad;
-        private ThumbstickState leftThumbStick;
-        private ThumbstickState rightThumbStick;
 
         private ButtonState a;
         private ButtonState b;
@@ -35,13 +33,15 @@ namespace CTMK_API.Control.Type
 
         private AxisState rightTrigger;
         private AxisState leftTrigger;
+        private AxisState leftThumbStickX;
+        private AxisState leftThumbStickY;
+        private AxisState rightThumbStickX;
+        private AxisState rightThumbStickY;
 
         private List<ButtonState> buttons;
         private List<AxisState> axises;
         private List<string> listButtonsDown;
         private List<string> listButtonsUp;
-        //private List<TriggerState> triggers;
-        private List<ThumbstickState> thumbSticks;
 
         private Dictionary<string, GamepadButtonFlags> buttonFlags; 
 
@@ -49,6 +49,13 @@ namespace CTMK_API.Control.Type
         {
             this.userIndex = userIndex;
             this.controller = new SlimDX.XInput.Controller(userIndex);
+
+            //Initialises buttonsUp and Down
+            listButtonsUp = new List<string>();
+            listButtonsDown = new List<string>();
+
+            //Initialises the Axises
+            axises = new List<AxisState>();
 
             //Sets up face buttons
             a = new ButtonState("A");
@@ -70,43 +77,38 @@ namespace CTMK_API.Control.Type
             //Sets up left and right trigger
             rightTrigger = new AxisState("RT");
             leftTrigger = new AxisState("LT");
+            leftThumbStickX = new AxisState("LX");
+            leftThumbStickY = new AxisState("LY");
+            rightThumbStickX = new AxisState("RX");
+            rightThumbStickY = new AxisState("RY");
 
             //Sets up DPad
             dPad = new PovState("DPAD");
 
-            //Sets up Thumbstick
-            leftThumbStick = new ThumbstickState("LEFTSTICK");
-            rightThumbStick = new ThumbstickState("RIGHTSTICK");
+            buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, leftThumbStickButton, rightThumbStickButton, dPad.GetDown(), dPad.GetLeft(), dPad.GetRight(), dPad.GetUp());
 
-            buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, leftThumbStickButton, rightThumbStickButton);
-
-            listButtonsUp = new List<string>();
-            listButtonsDown = new List<string>();
-            axises = new List<AxisState>();
-            thumbSticks = new List<ThumbstickState>();
-
+            //Button Util PLEASE n_n
             axises.Add(leftTrigger);
             axises.Add(rightTrigger);
-
-            thumbSticks.Add(leftThumbStick);
-            thumbSticks.Add(rightThumbStick);
+            axises.Add(leftThumbStickX);
+            axises.Add(leftThumbStickY);
+            axises.Add(rightThumbStickX);
+            axises.Add(rightThumbStickY);
 
             buttonFlags = XInputButtonFlagLookup.ConvertButtons(buttons);
         }
 
         public void Update()
         {
-            //Clears the list to make sure no double presses
-            listButtonsDown.Clear();
             listButtonsUp.Clear();
 
             //if connected and different packet only updates when control is changed 
             //Ignore last packet as it only changes when there is a change in the controller state
 
-            if (!Connect()) return;
-            //if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;
+            if (!Connect() || controller.GetState().PacketNumber == lastPacket) return;
 
-            //lastPacket = controller.GetState().PacketNumber;
+            listButtonsDown.Clear();
+            lastPacket = controller.GetState().PacketNumber;
 
             var gamepadState = controller.GetState().Gamepad;
             UpdateButtons(gamepadState.Buttons);
@@ -116,9 +118,34 @@ namespace CTMK_API.Control.Type
             UpdateAxis(rightTrigger, gamepadState.RightTrigger);
 
             //Sets the thumbsticks
-            UpdateThumbStick(leftThumbStick, Normalize(gamepadState.LeftThumbX, gamepadState.LeftThumbY, Gamepad.GamepadLeftThumbDeadZone));
-            UpdateThumbStick(rightThumbStick, Normalize(gamepadState.RightThumbX, gamepadState.RightThumbY, Gamepad.GamepadRightThumbDeadZone));
+            UpdateThumbStick(ref leftThumbStickX, gamepadState.LeftThumbX);
+            Console.WriteLine(leftThumbStickX.GetValue());
+            UpdateThumbStick(ref leftThumbStickY, gamepadState.LeftThumbY);
+            Console.WriteLine(leftThumbStickY.GetValue());
+
+            //Sets the thumbsticks
+            UpdateThumbStick(ref rightThumbStickX, gamepadState.RightThumbX);
+            Console.WriteLine(rightThumbStickX.GetValue());
+            UpdateThumbStick(ref rightThumbStickY, gamepadState.RightThumbY);
+            Console.WriteLine(rightThumbStickY.GetValue());
+
+           
         }
+
+        private void UpdateThumbStick(ref AxisState axis, short position)
+        {
+            Console.Write("Before: " + position);
+            axis.SetValue(ConvertPosition(position));
+            Console.Write(" After: ");
+        }
+
+        private ushort ConvertPosition(short position)
+        {
+            long temp = 32768;
+            temp += position;
+            return (ushort)temp;
+        }
+
 
         private void UpdateThumbStick(ThumbstickState thumbStick, Vector2 position)
         {
@@ -158,11 +185,6 @@ namespace CTMK_API.Control.Type
         public List<AxisState> GetAxises()
         {
             return axises;
-        }
-
-        public List<ThumbstickState> GetThumbSticks()
-        {
-            return thumbSticks;
         }
 
         private void UpdateButtons(GamepadButtonFlags gamepadButtonFlags)

@@ -52,6 +52,18 @@ namespace CTMK_API.Utility
                 case "RS":
                     flag = GamepadButtonFlags.RightShoulder;
                     break;
+                case "UP":
+                    flag = GamepadButtonFlags.DPadUp;
+                    break;
+                case "DOWN":
+                    flag = GamepadButtonFlags.DPadDown;
+                    break;
+                case "LEFT":
+                    flag = GamepadButtonFlags.DPadLeft;
+                    break;
+                case "RIGHT":
+                    flag = GamepadButtonFlags.DPadRight;
+                    break;
                 default:
                     flag = GamepadButtonFlags.None;
                     break;

@@ -19,8 +19,8 @@ namespace CTMK_API.Controller
 
         public override void PerformActions()
         {
-            LoopThrough("Button Up", buttonsUp);
-            LoopThrough("Button Down", buttonsDown);
+            //LoopThrough("Button Up", buttonsUp);
+            //LoopThrough("Button Down", buttonsDown);
             //LoopThrough(axises);
         }
 

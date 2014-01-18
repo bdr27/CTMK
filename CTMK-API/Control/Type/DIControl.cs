@@ -114,10 +114,5 @@ namespace CTMK_API.Control.Type
         {
             throw new NotImplementedException();
         }
-
-        public List<ThumbstickState> GetThumbSticks()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

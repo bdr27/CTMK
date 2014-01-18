@@ -11,6 +11,5 @@ namespace CTMK_API.Control.Type
         List<string> GetButtonsDown();
         List<string> GetButtonsUp();
         List<AxisState> GetAxises();
-        List<ThumbstickState> GetThumbSticks();
     }
 }

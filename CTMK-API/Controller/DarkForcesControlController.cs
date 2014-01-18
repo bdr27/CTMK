@@ -122,7 +122,7 @@ namespace CTMK_API.Controller
                 }
             }
 
-            foreach (var stick in thumbSticks)
+            /*foreach (var stick in thumbSticks)
             {
                 var dpad = stick.GetDpad();
                 var left = dpad.GetLeft();
@@ -208,18 +208,6 @@ namespace CTMK_API.Controller
                         {
                             hor = 0;
                         }
-                        /* var ver = stick.GetY();
-                                       if (hor > 0)
-                                       {
-                                           Console.WriteLine(hor);
-                                       }
-                                       if (ver > 0)
-                                       {
-                                           Console.WriteLine(ver);
-                                       }
-                        
-                                       int y = (int)(ver * -100);
-                           */
 
                         int x = (int)(hor * 25);
                         mouse.MoveMouseBy(x, 0);

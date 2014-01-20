@@ -58,6 +58,9 @@ namespace CTMK_TESTS.Utility
             key = ButtonUtil.KeyToVirtualKey("Oem1");
             Assert.AreEqual(VirtualKeyCode.OEM_1, key);
 
+            key = ButtonUtil.KeyToVirtualKey("OemQuestion");
+            Assert.AreEqual(VirtualKeyCode.OEM_2, key);
+
             key = ButtonUtil.KeyToVirtualKey("Oem2");
             Assert.AreEqual(VirtualKeyCode.OEM_2, key);
 
@@ -75,6 +78,9 @@ namespace CTMK_TESTS.Utility
 
             key = ButtonUtil.KeyToVirtualKey("Oem6");
             Assert.AreEqual(VirtualKeyCode.OEM_6, key);
+
+            key = ButtonUtil.KeyToVirtualKey("OemQuotes");
+            Assert.AreEqual(VirtualKeyCode.OEM_7, key);
 
             key = ButtonUtil.KeyToVirtualKey("Oem7");
             Assert.AreEqual(VirtualKeyCode.OEM_7, key);
@@ -163,6 +169,9 @@ namespace CTMK_TESTS.Utility
             
             key = ButtonUtil.KeyToVirtualKey("Return");
             Assert.AreEqual(VirtualKeyCode.RETURN, key);
+
+            key = ButtonUtil.KeyToVirtualKey("Clear");
+            Assert.AreEqual(VirtualKeyCode.CLEAR, key);
             
             key = ButtonUtil.KeyToVirtualKey("Decimal");
             Assert.AreEqual(VirtualKeyCode.DECIMAL, key);
@@ -274,7 +283,7 @@ namespace CTMK_TESTS.Utility
             #endregion
 
             #region Third Row
-            key = ButtonUtil.KeyToVirtualKey("Captial");
+            key = ButtonUtil.KeyToVirtualKey("Capital");
             Assert.AreEqual(VirtualKeyCode.CAPITAL, key);
             
             key = ButtonUtil.KeyToVirtualKey("A");
@@ -285,6 +294,9 @@ namespace CTMK_TESTS.Utility
 
             key = ButtonUtil.KeyToVirtualKey("F");
             Assert.AreEqual(VirtualKeyCode.VK_F, key);
+
+            key = ButtonUtil.KeyToVirtualKey("D");
+            Assert.AreEqual(VirtualKeyCode.VK_D, key);
 
             key = ButtonUtil.KeyToVirtualKey("G");
             Assert.AreEqual(VirtualKeyCode.VK_G, key);

@@ -31,6 +31,7 @@ namespace CTMK_API.Utility
                 case "OEM1":
                     key = VirtualKeyCode.OEM_1;
                     break;
+                case "OEMQUESTION":
                 case "OEM2":
                     key = VirtualKeyCode.OEM_2;
                     break;
@@ -47,6 +48,7 @@ namespace CTMK_API.Utility
                 case "OEM6":
                     key = VirtualKeyCode.OEM_6;
                     break;
+                case "OEMQUOTES":
                 case "OEM7":
                     key = VirtualKeyCode.OEM_7;
                     break;
@@ -206,6 +208,9 @@ namespace CTMK_API.Utility
                 case "DECIMAL":
                     key = VirtualKeyCode.DECIMAL;
                     break;
+                case "CLEAR":
+                    key = VirtualKeyCode.CLEAR;
+                    break;
                 #endregion
 
                 #region Top Row
@@ -285,7 +290,7 @@ namespace CTMK_API.Utility
                 #endregion
 
                 #region Third Row
-                case "CAPTIAL":
+                case "CAPITAL":
                     key = VirtualKeyCode.CAPITAL;
                     break;
                 case "A":
@@ -293,6 +298,9 @@ namespace CTMK_API.Utility
                     break;
                 case "S":
                     key = VirtualKeyCode.VK_S;
+                    break;
+                case "D":
+                    key = VirtualKeyCode.VK_D;
                     break;
                 case "F":
                     key = VirtualKeyCode.VK_F;

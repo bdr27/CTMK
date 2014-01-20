@@ -24,8 +24,55 @@ namespace CTMK_API.Utility
         public static VirtualKeyCode KeyToVirtualKey(string pressed)
         {
             VirtualKeyCode key;
-            switch(pressed.ToUpper())
+            switch (pressed.ToUpper())
             {
+
+                #region OEM
+                case "OEM1":
+                    key = VirtualKeyCode.OEM_1;
+                    break;
+                case "OEM2":
+                    key = VirtualKeyCode.OEM_2;
+                    break;
+                case "OEM3":
+                    key = VirtualKeyCode.OEM_3;
+                    break;
+                case "OEMOPENBRACKETS":
+                case "OEM4":
+                    key = VirtualKeyCode.OEM_4;
+                    break;
+                case "OEM5":
+                    key = VirtualKeyCode.OEM_5;
+                    break;
+                case "OEM6":
+                    key = VirtualKeyCode.OEM_6;
+                    break;
+                case "OEM7":
+                    key = VirtualKeyCode.OEM_7;
+                    break;
+                case "OEM8":
+                    key = VirtualKeyCode.OEM_8;
+                    break;
+                case "OEM102":
+                    key = VirtualKeyCode.OEM_102;
+                    break;
+                case "OEMMINUS":
+                    key = VirtualKeyCode.OEM_MINUS;
+                    break;
+                case "OEMPLUS":
+                    key = VirtualKeyCode.OEM_PLUS;
+                    break;
+                case "OEMCLEAR":
+                    key = VirtualKeyCode.OEM_CLEAR;
+                    break;
+                case "OEMCOMMA":
+                    key = VirtualKeyCode.OEM_COMMA;
+                    break;
+                case "OEMPERIOD":
+                    key = VirtualKeyCode.OEM_PERIOD;
+                    break;
+                #endregion
+
                 #region F Keys
                 case "F1":
                     key = VirtualKeyCode.F1;
@@ -161,9 +208,176 @@ namespace CTMK_API.Utility
                     break;
                 #endregion
 
+                #region Top Row
                 case "D1":
                     key = VirtualKeyCode.VK_1;
                     break;
+                case "D2":
+                    key = VirtualKeyCode.VK_2;
+                    break;
+                case "D3":
+                    key = VirtualKeyCode.VK_3;
+                    break;
+                case "D4":
+                    key = VirtualKeyCode.VK_4;
+                    break;
+                case "D5":
+                    key = VirtualKeyCode.VK_5;
+                    break;
+                case "D6":
+                    key = VirtualKeyCode.VK_6;
+                    break;
+                case "D7":
+                    key = VirtualKeyCode.VK_7;
+                    break;
+                case "D8":
+                    key = VirtualKeyCode.VK_8;
+                    break;
+                case "D9":
+                    key = VirtualKeyCode.VK_9;
+                    break;
+                case "D0":
+                    key = VirtualKeyCode.VK_0;
+                    break;
+                case "ESCAPE":
+                    key = VirtualKeyCode.ESCAPE;
+                    break;
+                case "BACK":
+                    key = VirtualKeyCode.BACK;
+                    break;
+                #endregion
+
+                #region Second Row
+                case "TAB":
+                    key = VirtualKeyCode.TAB;
+                    break;
+                case "Q":
+                    key = VirtualKeyCode.VK_Q;
+                    break;
+                case "W":
+                    key = VirtualKeyCode.VK_W;
+                    break;
+                case "E":
+                    key = VirtualKeyCode.VK_E;
+                    break;
+                case "R":
+                    key = VirtualKeyCode.VK_R;
+                    break;
+                case "T":
+                    key = VirtualKeyCode.VK_T;
+                    break;
+                case "Y":
+                    key = VirtualKeyCode.VK_Y;
+                    break;
+                case "U":
+                    key = VirtualKeyCode.VK_U;
+                    break;
+                case "I":
+                    key = VirtualKeyCode.VK_I;
+                    break;
+                case "O":
+                    key = VirtualKeyCode.VK_O;
+                    break;
+                case "P":
+                    key = VirtualKeyCode.VK_P;
+                    break;
+
+                #endregion
+
+                #region Third Row
+                case "CAPTIAL":
+                    key = VirtualKeyCode.CAPITAL;
+                    break;
+                case "A":
+                    key = VirtualKeyCode.VK_A;
+                    break;
+                case "S":
+                    key = VirtualKeyCode.VK_S;
+                    break;
+                case "F":
+                    key = VirtualKeyCode.VK_F;
+                    break;
+                case "G":
+                    key = VirtualKeyCode.VK_G;
+                    break;
+                case "H":
+                    key = VirtualKeyCode.VK_H;
+                    break;
+                case "J":
+                    key = VirtualKeyCode.VK_J;
+                    break;
+                case "K":
+                    key = VirtualKeyCode.VK_K;
+                    break;
+                case "L":
+                    key = VirtualKeyCode.VK_L;
+                    break;
+                #endregion
+
+                #region Forth Row
+                case "LEFTSHIFT":
+                    key = VirtualKeyCode.LSHIFT;
+                    break;
+                case "RIGHTSHIFT":
+                    key = VirtualKeyCode.RSHIFT;
+                    break;
+                case "SHIFT":
+                    key = VirtualKeyCode.SHIFT;
+                    break;
+                case "Z":
+                    key = VirtualKeyCode.VK_Z;
+                    break;
+                case "X":
+                    key = VirtualKeyCode.VK_X;
+                    break;
+                case "C":
+                    key = VirtualKeyCode.VK_C;
+                    break;
+                case "V":
+                    key = VirtualKeyCode.VK_V;
+                    break;
+                case "B":
+                    key = VirtualKeyCode.VK_B;
+                    break;
+                case "N":
+                    key = VirtualKeyCode.VK_N;
+                    break;
+                case "M":
+                    key = VirtualKeyCode.VK_M;
+                    break;
+
+                #endregion
+
+                #region Fifth Row
+                case "LEFTCTRL":
+                    key = VirtualKeyCode.LCONTROL;
+                    break;
+                case "RIGHTCTRL":
+                    key = VirtualKeyCode.RCONTROL;
+                    break;
+                case "CTRL":
+                    key = VirtualKeyCode.CONTROL;
+                    break;
+                case "LEFTALT":
+                    key = VirtualKeyCode.LMENU;
+                    break;
+                case "RIGHTALT":
+                    key = VirtualKeyCode.RMENU;
+                    break;
+                case "ALT":
+                    key = VirtualKeyCode.MENU;
+                    break;
+                case "SPACE":
+                    key = VirtualKeyCode.SPACE;
+                    break;
+                case "LWIN":
+                    key = VirtualKeyCode.LWIN;
+                    break;
+                case "RWIN":
+                    key = VirtualKeyCode.RWIN;
+                    break;
+                #endregion
+
                 default:
                     //Change to a better exception
                     throw new NotImplementedException();

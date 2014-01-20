@@ -39,14 +39,21 @@ namespace CTMK
                 key = e.Key.ToString();
             }
             test.Content = key;
+            try
+            {
+                Console.WriteLine(ButtonUtil.KeyToVirtualKey(key));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine(key + " not supported yet");
+            }
+            
+            //Console.WriteLine(key);
 
-            //ButtonUtil.KeyToVirtualKey(key);
-            Console.WriteLine(key);
-
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\dev\test\textFiles\keyboard.txt",true))
+            /*using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\dev\test\textFiles\keyboard.txt",true))
             {
                 file.WriteLine(key);
-            }
+            }*/
         }
     }
 }

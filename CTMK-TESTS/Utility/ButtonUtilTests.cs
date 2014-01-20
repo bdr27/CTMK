@@ -14,6 +14,43 @@ namespace CTMK_TESTS.Utility
             var key = ButtonUtil.KeyToVirtualKey("UP");
             Assert.AreEqual(VirtualKeyCode.UP, key);
 
+            key = ButtonUtil.KeyToVirtualKey("DOWN");
+            Assert.AreEqual(VirtualKeyCode.DOWN, key);
+
+            key = ButtonUtil.KeyToVirtualKey("LEFT");
+            Assert.AreEqual(VirtualKeyCode.LEFT, key);
+
+            key = ButtonUtil.KeyToVirtualKey("RIGHT");
+            Assert.AreEqual(VirtualKeyCode.RIGHT, key);
+
+            key = ButtonUtil.KeyToVirtualKey("DELETE");
+            Assert.AreEqual(VirtualKeyCode.DELETE, key);
+
+            key = ButtonUtil.KeyToVirtualKey("END");
+            Assert.AreEqual(VirtualKeyCode.END, key);
+
+            key = ButtonUtil.KeyToVirtualKey("NEXT");
+            Assert.AreEqual(VirtualKeyCode.NEXT, key);
+
+            key = ButtonUtil.KeyToVirtualKey("PAGEUP");
+            Assert.AreEqual(VirtualKeyCode.PRIOR, key);
+
+            key = ButtonUtil.KeyToVirtualKey("HOME");
+            Assert.AreEqual(VirtualKeyCode.HOME, key);
+
+            key = ButtonUtil.KeyToVirtualKey("INSERT");
+            Assert.AreEqual(VirtualKeyCode.INSERT, key);
+
+            key = ButtonUtil.KeyToVirtualKey("SNAPSHOT");
+            Assert.AreEqual(VirtualKeyCode.SNAPSHOT, key);
+
+            key = ButtonUtil.KeyToVirtualKey("SCROLL");
+            Assert.AreEqual(VirtualKeyCode.SCROLL, key);
+
+            key = ButtonUtil.KeyToVirtualKey("PAUSE");
+            Assert.AreEqual(VirtualKeyCode.PAUSE, key);
+            #region NUMPAD
+
             key = ButtonUtil.KeyToVirtualKey("NumLock");
             Assert.AreEqual(VirtualKeyCode.NUMLOCK, key);
             
@@ -64,6 +101,8 @@ namespace CTMK_TESTS.Utility
 
             key = ButtonUtil.KeyToVirtualKey("NumPad9");
             Assert.AreEqual(VirtualKeyCode.NUMPAD9, key);
+
+            #endregion
         }
     }
 }

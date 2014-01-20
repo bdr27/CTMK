@@ -28,6 +28,42 @@ namespace CTMK_API.Utility
                 case "UP":
                     key = VirtualKeyCode.UP;
                     break;
+                case "DOWN":
+                    key = VirtualKeyCode.DOWN;
+                    break;
+                case "LEFT":
+                    key = VirtualKeyCode.LEFT;
+                    break;
+                case "RIGHT":
+                    key = VirtualKeyCode.RIGHT;
+                    break;
+                case "DELETE":
+                    key = VirtualKeyCode.DELETE;
+                    break;
+                case "NEXT":
+                    key = VirtualKeyCode.NEXT;
+                    break;
+                case "END":
+                    key = VirtualKeyCode.END;
+                    break;
+                case "PAGEUP":
+                    key = VirtualKeyCode.PRIOR;
+                    break;
+                case "HOME":
+                    key = VirtualKeyCode.HOME;
+                    break;
+                case "INSERT":
+                    key = VirtualKeyCode.INSERT;
+                    break;
+                case "SNAPSHOT":
+                    key = VirtualKeyCode.SNAPSHOT;
+                    break;
+                case "SCROLL":
+                    key = VirtualKeyCode.SCROLL;
+                    break;
+                case "PAUSE":
+                    key = VirtualKeyCode.PAUSE;
+                    break;
                 #region NumPad                
                 case "NUMLOCK":
                     key = VirtualKeyCode.NUMLOCK;

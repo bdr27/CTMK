@@ -11,7 +11,52 @@ namespace CTMK_TESTS.Utility
         [TestMethod]
         public void ButtonUtilTestsKeyToVirtualKeyTests()
         {
-            var key = ButtonUtil.KeyToVirtualKey("UP");
+            VirtualKeyCode key;
+            #region F Keys
+            key = ButtonUtil.KeyToVirtualKey("F1");
+            Assert.AreEqual(VirtualKeyCode.F1, key);
+            
+            key = ButtonUtil.KeyToVirtualKey("F2");
+            Assert.AreEqual(VirtualKeyCode.F2, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F3");
+            Assert.AreEqual(VirtualKeyCode.F3, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F4");
+            Assert.AreEqual(VirtualKeyCode.F4, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F5");
+            Assert.AreEqual(VirtualKeyCode.F5, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F6");
+            Assert.AreEqual(VirtualKeyCode.F6, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F7");
+            Assert.AreEqual(VirtualKeyCode.F7, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F8");
+            Assert.AreEqual(VirtualKeyCode.F8, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F9");
+            Assert.AreEqual(VirtualKeyCode.F9, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F10");
+            Assert.AreEqual(VirtualKeyCode.F10, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F11");
+            Assert.AreEqual(VirtualKeyCode.F11, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F12");
+            Assert.AreEqual(VirtualKeyCode.F12, key);
+
+            key = ButtonUtil.KeyToVirtualKey("F1");
+            Assert.AreEqual(VirtualKeyCode.F1, key);
+            
+            #endregion
+            
+            #region Middle
+
+            key = ButtonUtil.KeyToVirtualKey("UP");
             Assert.AreEqual(VirtualKeyCode.UP, key);
 
             key = ButtonUtil.KeyToVirtualKey("DOWN");
@@ -49,6 +94,9 @@ namespace CTMK_TESTS.Utility
 
             key = ButtonUtil.KeyToVirtualKey("PAUSE");
             Assert.AreEqual(VirtualKeyCode.PAUSE, key);
+
+            #endregion
+           
             #region NUMPAD
 
             key = ButtonUtil.KeyToVirtualKey("NumLock");

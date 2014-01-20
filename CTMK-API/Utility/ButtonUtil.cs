@@ -20,11 +20,52 @@ namespace CTMK_API.Utility
             return buttons;
         }
 
+
         public static VirtualKeyCode KeyToVirtualKey(string pressed)
         {
             VirtualKeyCode key;
             switch(pressed.ToUpper())
             {
+                #region F Keys
+                case "F1":
+                    key = VirtualKeyCode.F1;
+                    break;
+                case "F2":
+                    key = VirtualKeyCode.F2;
+                    break;
+                case "F3":
+                    key = VirtualKeyCode.F3;
+                    break;
+                case "F4":
+                    key = VirtualKeyCode.F4;
+                    break;
+                case "F5":
+                    key = VirtualKeyCode.F5;
+                    break;
+                case "F6":
+                    key = VirtualKeyCode.F6;
+                    break;
+                case "F7":
+                    key = VirtualKeyCode.F7;
+                    break;
+                case "F8":
+                    key = VirtualKeyCode.F8;
+                    break;
+                case "F9":
+                    key = VirtualKeyCode.F9;
+                    break;
+                case "F10":
+                    key = VirtualKeyCode.F10;
+                    break;
+                case "F11":
+                    key = VirtualKeyCode.F11;
+                    break;
+                case "F12":
+                    key = VirtualKeyCode.F12;
+                    break;
+                #endregion
+
+                #region Middle
                 case "UP":
                     key = VirtualKeyCode.UP;
                     break;
@@ -64,7 +105,9 @@ namespace CTMK_API.Utility
                 case "PAUSE":
                     key = VirtualKeyCode.PAUSE;
                     break;
-                #region NumPad                
+                #endregion
+
+                #region NumPad
                 case "NUMLOCK":
                     key = VirtualKeyCode.NUMLOCK;
                     break;
@@ -117,6 +160,7 @@ namespace CTMK_API.Utility
                     key = VirtualKeyCode.DECIMAL;
                     break;
                 #endregion
+
                 case "D1":
                     key = VirtualKeyCode.VK_1;
                     break;

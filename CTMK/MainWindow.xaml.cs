@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CTMK_API.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,29 @@ namespace CTMK
         public MainWindow()
         {
             InitializeComponent();
+            this.KeyUp += new KeyEventHandler(OnKeyUp);
+        }
+
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        {
+            var key = "";
+            if (e.Key == Key.System)
+            {
+                key = e.SystemKey.ToString();
+            }
+            else
+            {
+                key = e.Key.ToString();
+            }
+            test.Content = key;
+
+            //ButtonUtil.KeyToVirtualKey(key);
+            Console.WriteLine(key);
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\dev\test\textFiles\keyboard.txt",true))
+            {
+                file.WriteLine(key);
+            }
         }
     }
 }

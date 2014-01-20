@@ -76,6 +76,7 @@
     <Compile Include="Control\Type\DIControl.cs" />
     <Compile Include="Control\Type\IController.cs" />
     <Compile Include="Control\Type\XIControl.cs" />
+    <Compile Include="Debugger\ConsoleManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ButtonUtil.cs" />
     <Compile Include="Utility\XInputButtonFlagLookup.cs" />

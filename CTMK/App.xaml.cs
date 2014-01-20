@@ -1,6 +1,6 @@
-﻿using CTMK.Debugger;
-using CTMK_API.Control;
+﻿using CTMK_API.Control;
 using CTMK_API.Controller;
+using CTMK_API.Debugger;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,12 +23,12 @@ namespace CTMK
             {
                 ConsoleManager.Show();
             }
-            var run = new GetControllers();
+            /*var run = new GetControllers();
             run.Execute();
             var controllers = run.ConnectedControllers();
 
             ControllerTemplate ct = new MOCKController(controllers[0]);
-            ct.Run();
+            ct.Run();*/
         }
     }
 }

@@ -58,6 +58,10 @@
       <HintPath>D:\dev\c#\SlimDXSDK\Bin\net40\x86\SlimDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="WindowsInput, Version=0.2.0.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\dev\c#\Windows Input Simulator\WindowsInput\bin\Release\x86\WindowsInput.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -75,6 +79,7 @@
     <Compile Include="Control\CTState\AxisStateTests.cs" />
     <Compile Include="Control\CTState\ButtonStateTests.cs" />
     <Compile Include="Control\CTState\PovStateTests.cs" />
+    <Compile Include="Utility\ButtonUtilTests.cs" />
     <Compile Include="Utility\XInputButtonFlagLookupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

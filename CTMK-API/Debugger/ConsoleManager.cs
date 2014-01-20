@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace CTMK.Debugger
+namespace CTMK_API.Debugger
 {
     [SuppressUnmanagedCodeSecurity]
     public static class ConsoleManager

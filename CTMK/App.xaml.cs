@@ -1,4 +1,5 @@
-﻿using CTMK_API.Control;
+﻿using CTMK.Debugger;
+using CTMK_API.Control;
 using CTMK_API.Controller;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,13 @@ namespace CTMK
     /// </summary>
     public partial class App : Application
     {
+        private bool DEBUG = true;
         public App(): base()
         {
+            if (DEBUG)
+            {
+                ConsoleManager.Show();
+            }
             var run = new GetControllers();
             run.Execute();
             var controllers = run.ConnectedControllers();

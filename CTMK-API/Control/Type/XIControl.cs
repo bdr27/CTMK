@@ -135,9 +135,7 @@ namespace CTMK_API.Control.Type
 
         private void UpdateThumbStick(ref AxisState axis, short position)
         {
-            Console.Write("Before: " + position);
             axis.SetValue(ConvertPosition(position));
-            Console.Write(" After: ");
         }
 
         private ushort ConvertPosition(short position)

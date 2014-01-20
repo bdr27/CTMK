@@ -2,6 +2,9 @@
 using SlimDX.DirectInput;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CTMK_API.Control.Type
 {
@@ -65,7 +68,7 @@ namespace CTMK_API.Control.Type
 
             for (int i = 0; i < sliders.Length; i++)
             {
-                Console.WriteLine("Sliders: " + (i + 1) +  " " + sliders[i]);
+                Console.WriteLine("Sliders: " + (i + 1) + " " + sliders[i]);
             }
 
             for (int i = 0; i < joy.Capabilities.ButtonCount; i++)

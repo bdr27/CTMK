@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CTMK_API.Control.CTState;
 
-namespace CTMK_TESTS.CTState
+namespace CTMK_TESTS.Control.CTState
 {
     [TestClass]
     public class PovStateTests
@@ -27,7 +27,7 @@ namespace CTMK_TESTS.CTState
         public void PovStateAroundTheWorldNewPovTest()
         {
             var name = "DPAD";
-            
+
             PovTest("UP", 0, new PovState(name));
             PovTest("DOWN", 18000, new PovState(name));
             PovTest("LEFT", 27000, new PovState(name));
@@ -48,6 +48,7 @@ namespace CTMK_TESTS.CTState
         private void PovTest(string name, short position, PovState pov)
         {
             pov.SetPosition(position);
+            pov.UpdatePov();
             var buttons = pov.GetButtonsDown();
             Assert.AreEqual(1, buttons.Count);
             Assert.AreEqual(name, buttons[0].GetName());

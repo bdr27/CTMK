@@ -2,7 +2,9 @@
 using SlimDX.XInput;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CTMK_API.Utility
 {
@@ -20,7 +22,7 @@ namespace CTMK_API.Utility
         private static GamepadButtonFlags GetGamepadButtonFlag(string button)
         {
             GamepadButtonFlags flag;
-            switch(button.ToUpper())
+            switch (button.ToUpper())
             {
                 case "A":
                     flag = GamepadButtonFlags.A;
@@ -87,21 +89,11 @@ namespace CTMK_API.Utility
         public static Dictionary<string, GamepadButtonFlags> ConvertButtons(List<ButtonState> buttons)
         {
             var listButtons = new List<string>();
-            foreach(var button in buttons)
+            foreach (var button in buttons)
             {
                 listButtons.Add(button.GetName());
             }
             return ConvertButtons(listButtons);
         }
-
-        /*public static string ConvertFlags(List<GamepadButtonFlags> buttonFlags)
-        {
-            throw new NotImplementedException();
-        }*/
-
-        /*public static string ConvertFlag(GamepadButtonFlags buttonFlag)
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }

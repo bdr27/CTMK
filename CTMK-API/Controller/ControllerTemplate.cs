@@ -2,6 +2,9 @@
 using CTMK_API.Control.Type;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Timers;
 using WindowsInput;
 
@@ -35,7 +38,7 @@ namespace CTMK_API.Controller
         {
             timer.Stop();
         }
-        
+
         public abstract void PerformActions();
 
         private void Timer_Tick(object sender, ElapsedEventArgs e)

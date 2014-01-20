@@ -1,8 +1,10 @@
-﻿
-using CTMK_API.Utility;
-using SlimDX.XInput;
+﻿using CTMK_API.Utility;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace CTMK_API.Control.CTState
 {
     public class PovState
@@ -27,11 +29,16 @@ namespace CTMK_API.Control.CTState
 
         public void SetPosition(short position)
         {
+            this.position = position;          
+        }
+
+        public void UpdatePov()
+        {
             var buttonsDown = new List<string>();
             if (position != -1)
             {
                 var temp = position / 4500;
-                switch(temp)
+                switch (temp)
                 {
                     case 0:
                         buttonsDown.Add(up.GetName());

@@ -1,14 +1,11 @@
-﻿using CTMK_API.Control.CTState;
+﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using CTMK_API.Control.CTState;
 
-namespace CTMK_TESTS.CTState
+namespace CTMK_TESTS.Control.CTState
 {
     [TestClass]
-    public class AxisStateTest
+    public class AxisStateTests
     {
         [TestMethod]
         public void AxisStateNameTest()

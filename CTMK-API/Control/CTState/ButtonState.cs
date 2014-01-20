@@ -1,5 +1,8 @@
-﻿
-using SlimDX.XInput;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CTMK_API.Control.CTState
 {
@@ -33,7 +36,7 @@ namespace CTMK_API.Control.CTState
             {
                 down = false;
                 released = true;
-            }            
+            }
         }
 
         public bool GetDown()

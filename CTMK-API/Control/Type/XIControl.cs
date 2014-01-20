@@ -1,10 +1,11 @@
 ﻿using CTMK_API.Control.CTState;
 using CTMK_API.Utility;
-using SlimDX;
 using SlimDX.XInput;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CTMK_API.Control.Type
 {
@@ -43,7 +44,7 @@ namespace CTMK_API.Control.Type
         private List<string> listButtonsDown;
         private List<string> listButtonsUp;
 
-        private Dictionary<string, GamepadButtonFlags> buttonFlags; 
+        private Dictionary<string, GamepadButtonFlags> buttonFlags;
 
         public XIControl(UserIndex userIndex)
         {
@@ -129,7 +130,7 @@ namespace CTMK_API.Control.Type
             UpdateThumbStick(ref rightThumbStickY, gamepadState.RightThumbY);
             Console.WriteLine(rightThumbStickY.GetValue());
 
-           
+
         }
 
         private void UpdateThumbStick(ref AxisState axis, short position)
@@ -146,26 +147,6 @@ namespace CTMK_API.Control.Type
             return (ushort)temp;
         }
 
-
-        private void UpdateThumbStick(ThumbstickState thumbStick, Vector2 position)
-        {
-            thumbStick.SetPosition(position);
-        }
-
-        private Vector2 Normalize(short rawX, short rawY, short threshold)
-        {
-            long temp = rawX + 32768;
-            ushort uRawX = (ushort)temp;
-            var value = new Vector2(rawX, rawY);
-            var magnitude = value.Length();
-            var direction = value / (magnitude == 0 ? 1 : magnitude);
-
-            var normalizedMagnitude = 0.0f;
-            if (magnitude - threshold > 0)
-                normalizedMagnitude = Math.Min((magnitude - threshold) / (short.MaxValue - threshold), 1);
-
-            return direction * normalizedMagnitude;
-        }
 
         private void UpdateAxis(AxisState axis, ushort value)
         {

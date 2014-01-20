@@ -3,7 +3,9 @@ using SlimDX.DirectInput;
 using SlimDX.XInput;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CTMK_API.Control
 {
@@ -44,12 +46,12 @@ namespace CTMK_API.Control
                         controllers.Add(new DIControl(control));
                         Console.WriteLine("Loaded: " + control.Information.InstanceName);
                     }
-                    
+
                 }
                 catch (DirectInputException ex)
                 {
                     Console.WriteLine("Error trying to connect to: " + ex.Message);
-                }                
+                }
             }
         }
 

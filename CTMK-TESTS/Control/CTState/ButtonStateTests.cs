@@ -1,8 +1,8 @@
-﻿using CTMK_API.Control.CTState;
+﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SlimDX.XInput;
+using CTMK_API.Control.CTState;
 
-namespace CTMK_TESTS.CTState
+namespace CTMK_TESTS.Control.CTState
 {
     [TestClass]
     public class ButtonStateTests

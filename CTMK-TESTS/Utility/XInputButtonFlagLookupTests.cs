@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CTMK_API.Utility;
 using SlimDX.XInput;
+using CTMK_API.Utility;
 using CTMK_API.Control.CTState;
+using System.Collections.Generic;
 
-namespace CTMK_TESTS.Utility
+namespace CTMK_TESTS
 {
-    /// <summary>
-    /// Summary description for XInputButtonFlagLookupTest
-    /// </summary>
     [TestClass]
-    public class XInputButtonFlagLookupTest
+    public class XInputButtonFlagLookupTests
     {
         [TestMethod]
         public void XInputButtonFlagLookupConvertButtonStringTest()
@@ -77,7 +72,7 @@ namespace CTMK_TESTS.Utility
             list.Add("LS");
 
             var result = XInputButtonFlagLookup.ConvertButtons(list);
-            
+
             Assert.AreEqual(GamepadButtonFlags.A, result["A"]);
             Assert.AreEqual(GamepadButtonFlags.B, result["B"]);
             Assert.AreEqual(GamepadButtonFlags.X, result["X"]);

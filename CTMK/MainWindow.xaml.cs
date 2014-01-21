@@ -25,6 +25,7 @@ namespace CTMK
         {
             InitializeComponent();
             this.KeyUp += new KeyEventHandler(OnKeyUp);
+            BindDictionary(cmbControls);            
         }
 
         private void OnKeyUp(object sender, KeyEventArgs e)
@@ -38,7 +39,6 @@ namespace CTMK
             {
                 key = e.Key.ToString();
             }
-            test.Content = key;
             try
             {
                 Console.WriteLine(ButtonUtil.KeyToVirtualKey(key));
@@ -54,6 +54,18 @@ namespace CTMK
             {
                 file.WriteLine(key);
             }*/
+        }
+
+        public void UpdateControllerDialog(Dictionary<int, string> controls)
+        {
+            cmbControls.ItemsSource = controls;
+            cmbControls.SelectedIndex = 0;
+        }
+
+        private void BindDictionary(ComboBox control)
+        {
+            control.SelectedValuePath = "Key";
+            control.DisplayMemberPath = "Value";
         }
     }
 }

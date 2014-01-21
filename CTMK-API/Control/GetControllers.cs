@@ -79,5 +79,15 @@ namespace CTMK_API.Control
         {
             return dinput.GetDevices(DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly);
         }
+
+        public Dictionary<int,string> GetAvaliableControllers()
+        {
+            var controls = new Dictionary<int, string>();
+            for (int i = 0; i < controllers.Count; i++)
+            {
+                controls.Add(i, controllers[i].GetName());
+            }
+            return controls;
+        }
     }
 }

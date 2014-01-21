@@ -117,5 +117,10 @@ namespace CTMK_API.Control.Type
         {
             throw new NotImplementedException();
         }
+
+        public string GetName()
+        {
+            return joy.Information.InstanceName;
+        }
     }
 }

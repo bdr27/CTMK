@@ -1,16 +1,7 @@
 ﻿using CTMK_API.Control;
-using CTMK_API.Controller;
 using CTMK_API.Debugger;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using WindowsInput;
-using WindowsInput.Native;
 
 namespace CTMK
 {
@@ -19,19 +10,24 @@ namespace CTMK
     /// </summary>
     public partial class App : Application
     {
+        private MainWindow window;
         private bool DEBUG = true;
         public App(): base()
         {
+            window = new MainWindow();
             if (DEBUG)
             {
                 ConsoleManager.Show();
             }
             var run = new GetControllers();
             run.Execute();
-            var controllers = run.ConnectedControllers();
+            UpdateControllerDialog(run.GetAvaliableControllers());
+            window.Show();
+        }
 
-            ControllerTemplate ct = new DarkForcesControlController(controllers[0]);
-            ct.Run();
+        private void UpdateControllerDialog(Dictionary<int, string> controls)
+        {
+            window.UpdateControllerDialog(controls);
         }
     }
 }

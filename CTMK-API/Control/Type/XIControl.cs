@@ -191,5 +191,10 @@ namespace CTMK_API.Control.Type
         public void Disconnect()
         {
         }
+
+        public string GetName()
+        {
+            return "XBOX 360 Controller " + userIndex;
+        }
     }
 }

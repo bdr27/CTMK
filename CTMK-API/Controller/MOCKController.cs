@@ -10,13 +10,10 @@ namespace CTMK_API.Controller
 {
     public class MOCKController : ControllerTemplate
     {
+        
         public MOCKController(IController control)
             : base(control)
         {
-            /*foreach (var trigger in axises)
-            {
-                trigger.SetActivationPoint(0.2f);
-            }*/
         }
 
         public override void PerformActions()

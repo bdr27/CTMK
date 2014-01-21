@@ -120,17 +120,9 @@ namespace CTMK_API.Control.Type
 
             //Sets the thumbsticks
             UpdateThumbStick(ref leftThumbStickX, gamepadState.LeftThumbX);
-            Console.WriteLine(leftThumbStickX.GetValue());
             UpdateThumbStick(ref leftThumbStickY, gamepadState.LeftThumbY);
-            Console.WriteLine(leftThumbStickY.GetValue());
-
-            //Sets the thumbsticks
             UpdateThumbStick(ref rightThumbStickX, gamepadState.RightThumbX);
-            Console.WriteLine(rightThumbStickX.GetValue());
             UpdateThumbStick(ref rightThumbStickY, gamepadState.RightThumbY);
-            Console.WriteLine(rightThumbStickY.GetValue());
-
-
         }
 
         private void UpdateThumbStick(ref AxisState axis, short position)

@@ -43,11 +43,13 @@ namespace CTMK_API.Controller
 
         private void Timer_Tick(object sender, ElapsedEventArgs e)
         {
+            timer.Stop();
             control.Update();
             buttonsDown = control.GetButtonsDown();
             buttonsUp = control.GetButtonsUp();
             axises = control.GetAxises();
             PerformActions();
+            timer.Start();
         }
 
         private void SetupTimer()

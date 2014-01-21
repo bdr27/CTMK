@@ -26,12 +26,12 @@ namespace CTMK
             {
                 ConsoleManager.Show();
             }
-            /*var run = new GetControllers();
+            var run = new GetControllers();
             run.Execute();
             var controllers = run.ConnectedControllers();
 
-            ControllerTemplate ct = new MOCKController(controllers[0]);
-            ct.Run();*/
+            ControllerTemplate ct = new DarkForcesControlController(controllers[0]);
+            ct.Run();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace CTMK_API.Control.CTState
         private ushort min;
         private ushort max;
         private ushort value;
+        private ushort calibration;
         private string name;
 
         public AxisState(string name)
@@ -28,6 +29,7 @@ namespace CTMK_API.Control.CTState
                 min = value;
                 max = value;
                 middle = value;
+                calibration = value;
             }
             else
             {
@@ -73,6 +75,11 @@ namespace CTMK_API.Control.CTState
         public string GetName()
         {
             return name;
+        }
+
+        public ushort GetCalibration()
+        {
+            return calibration;
         }
     }
 }

@@ -69,7 +69,11 @@ namespace CTMK
 
         public void UpdateControllerDisplay(IController control)
         {
-            
+            lvButtons.Items.Clear();
+            foreach (var button in control.GetButtons())
+            {
+                lvButtons.Items.Add(button.GetName());
+            }
         }
 
         //Move this to cn

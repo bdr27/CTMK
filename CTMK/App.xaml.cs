@@ -20,6 +20,7 @@ namespace CTMK
         {
             controller = new GetControllers();
             window = new MainWindow();
+            WireHandlers();
             if (DEBUG)
             {
                 ConsoleManager.Show();
@@ -27,11 +28,13 @@ namespace CTMK
             LoadControllers();
             UpdateController();
             window.Show();
+            
         }
 
         private void UpdateAvaliableControls()
         {
-            controller.Execute();            
+            controller.Execute();
+            avaliableControllers = controller.ConnectedControllers();
         }
 
         private void UpdateController()
@@ -48,9 +51,8 @@ namespace CTMK
 
         private void LoadControllers()
         {
-            UpdateAvaliableControls();
-            UpdateControllerSelection(controller.GetAvaliableControllers());
-            avaliableControllers = controller.ConnectedControllers();
+            UpdateAvaliableControls();            
+            UpdateControllerSelection(controller.GetAvaliableControllers());            
         }
 
         private bool GetController(int index)
@@ -58,7 +60,9 @@ namespace CTMK
             try
             {
                 control = controller.GetControl(index);
-                if (control.GetName() == avaliableControllers[index].GetName())
+                var controlName = control.GetName();
+                var avaliableName = avaliableControllers[index].GetName();
+                if (controlName == avaliableName)
                 {
                     return true;
                 }

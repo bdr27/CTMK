@@ -11,16 +11,30 @@ namespace CTMK_API.Control.Type
     public class DIControl : IController
     {
         private Joystick joy;
-        private ButtonState[] buttons;
+        private int buttonCount;
+        private int povCount;
+        private int axisesCount;
+        private List<ButtonState> buttons;
         private AxisState[] axises;
         private PovState[] povs;
+        private string name;
 
         public DIControl(Joystick joy)
         {
             this.joy = joy;
-            buttons = new ButtonState[joy.Capabilities.ButtonCount];
-            axises = new AxisState[joy.Capabilities.AxesCount];
-            povs = new PovState[joy.Capabilities.PovCount];
+            buttonCount = joy.Capabilities.ButtonCount;
+            povCount = joy.Capabilities.PovCount;
+            axisesCount = joy.Capabilities.AxesCount;
+            name = joy.Information.InstanceName;
+            LoadButtons();
+        }
+        private void LoadButtons()
+        {
+            buttons = new List<ButtonState>();
+            for (int i = 0; i < buttonCount; i++)
+            {
+                buttons.Add(new ButtonState("" + (i + 1)));
+            }
         }
 
         public bool Connect()
@@ -120,7 +134,7 @@ namespace CTMK_API.Control.Type
 
         public string GetName()
         {
-            return joy.Information.InstanceName;
+            return name;
         }
 
 
@@ -143,6 +157,12 @@ namespace CTMK_API.Control.Type
         public List<PovState> GetPovs()
         {
             throw new NotImplementedException();
+        }
+
+
+        public List<ButtonState> GetButtons()
+        {
+            return buttons;
         }
     }
 }

@@ -222,5 +222,10 @@ namespace CTMK_API.Control.Type
             pov.Add(dPad);
             return pov;
         }
+
+        public List<ButtonState> GetButtons()
+        {
+            return buttons;
+        }
     }
 }

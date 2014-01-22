@@ -196,5 +196,21 @@ namespace CTMK_API.Control.Type
         {
             return "XBOX 360 Controller " + userIndex;
         }
+
+
+        public int GetAxisCount()
+        {
+            return 6;
+        }
+
+        public int GetButtonCount()
+        {
+            return 10;
+        }
+
+        public int GetPovCount()
+        {
+            return 1;
+        }
     }
 }

@@ -12,15 +12,15 @@ namespace CTMK_API.Control.Type
     {
         private Joystick joy;
         private ButtonState[] buttons;
-        private AxisState[] axis;
-        private PovState[] pov;
+        private AxisState[] axises;
+        private PovState[] povs;
 
         public DIControl(Joystick joy)
         {
             this.joy = joy;
             buttons = new ButtonState[joy.Capabilities.ButtonCount];
-            axis = new AxisState[joy.Capabilities.AxesCount];
-            pov = new PovState[joy.Capabilities.PovCount];
+            axises = new AxisState[joy.Capabilities.AxesCount];
+            povs = new PovState[joy.Capabilities.PovCount];
         }
 
         public bool Connect()
@@ -121,6 +121,22 @@ namespace CTMK_API.Control.Type
         public string GetName()
         {
             return joy.Information.InstanceName;
+        }
+
+
+        public int GetAxisCount()
+        {
+            return axises.Count();
+        }
+
+        public int GetButtonCount()
+        {
+            return buttons.Count();
+        }
+
+        public int GetPovCount()
+        {
+            return povs.Count();
         }
     }
 }

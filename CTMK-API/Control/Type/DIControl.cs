@@ -45,6 +45,7 @@ namespace CTMK_API.Control.Type
         public void Disconnect()
         {
             joy.Unacquire();
+            joy.Dispose();
         }
 
         public void Update()

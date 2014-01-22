@@ -27,8 +27,7 @@ namespace CTMK
             }
             LoadControllers();
             UpdateController();
-            window.Show();
-            
+            window.Show();            
         }
 
         private void UpdateAvaliableControls()
@@ -82,6 +81,15 @@ namespace CTMK
         private void WireHandlers()
         {
             window.AddControllerSelectionHandler(HandleControllerChange_Select);
+            window.AddWindowClosing(HandleWindow_Closing);
+        }
+
+        private void HandleWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            foreach (var control in avaliableControllers)
+            {
+                control.Disconnect();
+            }
         }
 
         private void HandleControllerChange_Select(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

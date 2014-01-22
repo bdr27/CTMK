@@ -2,6 +2,7 @@
 using CTMK_API.Utility;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,6 +81,16 @@ namespace CTMK
         public void AddControllerSelectionHandler(SelectionChangedEventHandler handler)
         {
             cmbControls.SelectionChanged += handler;
+        }
+
+        public void AddWindowClosing(CancelEventHandler handler)
+        {
+            this.Closing += handler;
+        }
+
+        private void IAmClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }

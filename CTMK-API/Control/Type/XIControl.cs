@@ -86,7 +86,7 @@ namespace CTMK_API.Control.Type
             //Sets up DPad
             dPad = new PovState("DPAD");
 
-            buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, leftThumbStickButton, rightThumbStickButton, dPad.GetDown(), dPad.GetLeft(), dPad.GetRight(), dPad.GetUp());
+            buttons = ButtonUtil.GetListButtons(a, b, x, y, start, back, leftShoulder, rightShoulder, leftThumbStickButton, rightThumbStickButton); //,dPad.GetDown(), dPad.GetLeft(), dPad.GetRight(), dPad.GetUp());
 
             //Button Util PLEASE n_n
             axises.Add(leftTrigger);
@@ -112,7 +112,7 @@ namespace CTMK_API.Control.Type
             lastPacket = controller.GetState().PacketNumber;
 
             var gamepadState = controller.GetState().Gamepad;
-            UpdateButtons(gamepadState.Buttons);
+            UpdateButtons(this.buttons, gamepadState.Buttons);
 
             //Sets the triggers
             UpdateAxis(leftTrigger, gamepadState.LeftTrigger);
@@ -123,6 +123,8 @@ namespace CTMK_API.Control.Type
             UpdateThumbStick(ref leftThumbStickY, gamepadState.LeftThumbY);
             UpdateThumbStick(ref rightThumbStickX, gamepadState.RightThumbX);
             UpdateThumbStick(ref rightThumbStickY, gamepadState.RightThumbY);
+
+            UpdateButtons(dPad.GetButtons(), gamepadState.Buttons);
         }
 
         private void UpdateThumbStick(ref AxisState axis, short position)
@@ -158,7 +160,7 @@ namespace CTMK_API.Control.Type
             return axises;
         }
 
-        private void UpdateButtons(GamepadButtonFlags gamepadButtonFlags)
+        private void UpdateButtons(List<ButtonState>buttons, GamepadButtonFlags gamepadButtonFlags)
         {
             foreach (var button in buttons)
             {
@@ -211,6 +213,14 @@ namespace CTMK_API.Control.Type
         public int GetPovCount()
         {
             return 1;
+        }
+
+
+        public List<PovState> GetPovs()
+        {
+            var pov = new List<PovState>();
+            pov.Add(dPad);
+            return pov;
         }
     }
 }

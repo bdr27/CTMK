@@ -19,5 +19,6 @@ namespace CTMK_API.Control.Type
         int GetButtonCount();
         int GetPovCount();
         string GetName();
+        List<PovState> GetPovs();
     }
 }

@@ -89,5 +89,10 @@ namespace CTMK_API.Control
             }
             return controls;
         }
+
+        public IController GetControl(int index)
+        {
+            return controllers[index];
+        }
     }
 }

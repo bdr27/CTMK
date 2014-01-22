@@ -1,4 +1,5 @@
-﻿using CTMK_API.Utility;
+﻿using CTMK_API.Control.Type;
+using CTMK_API.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,13 +48,6 @@ namespace CTMK
             {
                 Console.WriteLine(key + " not supported yet");
             }
-            
-            //Console.WriteLine(key);
-
-            /*using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\dev\test\textFiles\keyboard.txt",true))
-            {
-                file.WriteLine(key);
-            }*/
         }
 
         public void UpdateControllerDialog(Dictionary<int, string> controls)
@@ -66,6 +60,22 @@ namespace CTMK
         {
             control.SelectedValuePath = "Key";
             control.DisplayMemberPath = "Value";
+        }
+
+        public int GetSelectedIndex()
+        {
+            return (int)cmbControls.SelectedValue;
+        }
+
+        public void UpdateControllerDisplay(IController control)
+        {
+            
+        }
+
+        //Move this to cn
+        public void AddControllerSelectionHandler(SelectionChangedEventHandler handler)
+        {
+            cmbControls.SelectionChanged += handler;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace CTMK_API.Controller
         protected List<string> buttonsDown;
         protected List<string> buttonsUp;
         protected List<AxisState> axises;
+        protected List<PovState> povs;
         protected IKeyboardSimulator keyboard;
         protected IMouseSimulator mouse;
 
@@ -48,6 +49,7 @@ namespace CTMK_API.Controller
             buttonsDown = control.GetButtonsDown();
             buttonsUp = control.GetButtonsUp();
             axises = control.GetAxises();
+            povs = control.GetPovs();
             PerformActions();
             timer.Start();
         }

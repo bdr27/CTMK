@@ -142,6 +142,11 @@ namespace CTMK_API.Control.CTState
             return released;
         }
 
+        public List<ButtonState> GetButtons()
+        {
+            return buttons;
+        }
+
         public string GetName()
         {
             return name;

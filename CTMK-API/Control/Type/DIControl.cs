@@ -138,5 +138,11 @@ namespace CTMK_API.Control.Type
         {
             return povs.Count();
         }
+
+
+        public List<PovState> GetPovs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

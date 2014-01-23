@@ -15,6 +15,7 @@ namespace CTMK
         private GetControllers controller;
         private List<IController> avaliableControllers;
         private IController control;
+        private ControllerAction action;
         private bool DEBUG = true;
         public App(): base()
         {
@@ -95,6 +96,7 @@ namespace CTMK
         private void HandleControllerChange_Select(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             UpdateController();
+            action = new ControllerAction(control.GetName());
         }
     }
 }

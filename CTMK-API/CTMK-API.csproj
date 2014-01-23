@@ -67,13 +67,13 @@
     <Compile Include="Controller\ControllerTemplate.cs" />
     <Compile Include="Controller\DarkForcesControlController.cs" />
     <Compile Include="Controller\MOCKController.cs" />
+    <Compile Include="Control\ControllerAction.cs" />
     <Compile Include="Control\CTState\AxisState.cs" />
     <Compile Include="Control\CTState\ButtonState.cs" />
     <Compile Include="Control\CTState\PovState.cs" />
     <Compile Include="Control\GetControllers.cs" />
     <Compile Include="Control\IExecute.cs" />
     <Compile Include="Control\Type\ButtonLookUp.cs" />
-    <Compile Include="Control\Type\ControllerAction.cs" />
     <Compile Include="Control\Type\DIControl.cs" />
     <Compile Include="Control\Type\IController.cs" />
     <Compile Include="Control\Type\XIControl.cs" />

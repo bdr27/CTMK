@@ -11,13 +11,13 @@ namespace CTMK_API.Control.Type
     public class DIControl : IController
     {
         private Joystick joy;
-        private int buttonCount;
-        private int povCount;
-        private int axisesCount;
+        private readonly int buttonCount;
+        private readonly int povCount;
+        private readonly int axisesCount;
         private List<ButtonState> buttons;
-        private AxisState[] axises;
-        private PovState[] povs;
-        private string name;
+        private readonly AxisState[] axises;
+        private readonly PovState[] povs;
+        private readonly string name;
 
         public DIControl(Joystick joy)
         {
@@ -26,6 +26,8 @@ namespace CTMK_API.Control.Type
             povCount = joy.Capabilities.PovCount;
             axisesCount = joy.Capabilities.AxesCount;
             name = joy.Information.InstanceName;
+            axises = new AxisState[joy.Capabilities.AxesCount];
+            povs = new PovState[joy.Capabilities.PovCount];
             LoadButtons();
         }
         private void LoadButtons()
@@ -70,7 +72,7 @@ namespace CTMK_API.Control.Type
             var buttons = state.GetButtons();
             var sliders = state.GetSliders();
             var pov = state.GetPointOfViewControllers();
-
+            
             Console.Clear();
 
             for (int i = 0; i < joy.Capabilities.PovCount; i++)

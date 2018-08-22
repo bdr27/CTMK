@@ -9,13 +9,13 @@ namespace CTMK_API.Control.CTState
 {
     public class PovState
     {
-        private string name;
+        private readonly string name;
         private short position = -1;
         private ButtonState up;
         private ButtonState down;
         private ButtonState left;
         private ButtonState right;
-        private List<ButtonState> buttons;
+        private readonly List<ButtonState> buttons;
 
         public PovState(string name)
         {

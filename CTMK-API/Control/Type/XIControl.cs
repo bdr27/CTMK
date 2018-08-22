@@ -18,33 +18,33 @@ namespace CTMK_API.Control.Type
 
         private PovState dPad;
 
-        private ButtonState a;
-        private ButtonState b;
-        private ButtonState x;
-        private ButtonState y;
+        private readonly ButtonState a;
+        private readonly ButtonState b;
+        private readonly ButtonState x;
+        private readonly ButtonState y;
 
-        private ButtonState rightShoulder;
-        private ButtonState leftShoulder;
+        private readonly ButtonState rightShoulder;
+        private readonly ButtonState leftShoulder;
 
-        private ButtonState start;
-        private ButtonState back;
+        private readonly ButtonState start;
+        private readonly ButtonState back;
 
-        private ButtonState leftThumbStickButton;
-        private ButtonState rightThumbStickButton;
+        private readonly ButtonState leftThumbStickButton;
+        private readonly ButtonState rightThumbStickButton;
 
-        private AxisState rightTrigger;
-        private AxisState leftTrigger;
+        private readonly AxisState rightTrigger;
+        private readonly AxisState leftTrigger;
         private AxisState leftThumbStickX;
         private AxisState leftThumbStickY;
         private AxisState rightThumbStickX;
         private AxisState rightThumbStickY;
 
-        private List<ButtonState> buttons;
-        private List<AxisState> axises;
+        private readonly List<ButtonState> buttons;
+        private readonly List<AxisState> axises;
         private List<string> listButtonsDown;
         private List<string> listButtonsUp;
 
-        private Dictionary<string, GamepadButtonFlags> buttonFlags;
+        private readonly Dictionary<string, GamepadButtonFlags> buttonFlags;
 
         public XIControl(UserIndex userIndex)
         {
@@ -218,8 +218,10 @@ namespace CTMK_API.Control.Type
 
         public List<PovState> GetPovs()
         {
-            var pov = new List<PovState>();
-            pov.Add(dPad);
+            var pov = new List<PovState>
+            {
+                dPad
+            };
             return pov;
         }
 

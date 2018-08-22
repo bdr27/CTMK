@@ -12,12 +12,12 @@ namespace CTMK_API.Controller
 {
     public class DarkForcesControlController : ControllerTemplate
     {
-        private float activationPoint = 0.2f;
-        private bool[] simpleActivation;
+        private readonly float activationPoint = 0.2f;
+        private readonly bool[] simpleActivation;
         private int weapon = 0;
         private long milliseconds;
-        private int weaponTimer = 150;
-        private int mouseSpeed = 25;
+        private readonly int weaponTimer = 150;
+        private readonly int mouseSpeed = 25;
 
         public DarkForcesControlController(IController control)
             : base(control)

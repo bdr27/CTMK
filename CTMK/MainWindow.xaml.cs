@@ -65,7 +65,12 @@ namespace CTMK
 
         public int GetSelectedIndex()
         {
-            return (int)cmbControls.SelectedValue;
+            int value = -1;
+            if(cmbControls.SelectedValue != null)
+            {
+                value = (int)cmbControls.SelectedValue;
+            }
+            return value;
         }
 
         public void UpdateControllerDisplay(IController control)

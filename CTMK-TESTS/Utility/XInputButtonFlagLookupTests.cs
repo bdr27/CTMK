@@ -53,23 +53,25 @@ namespace CTMK_TESTS
         [TestMethod]
         public void XInputButtonFlagLookupConvertListButtonButtonTest()
         {
-            var list = new List<string>();
-            list.Add("A");
-            list.Add("B");
-            list.Add("X");
-            list.Add("Y");
+            var list = new List<string>
+            {
+                "A",
+                "B",
+                "X",
+                "Y",
 
-            list.Add("START");
-            list.Add("BACK");
+                "START",
+                "BACK",
 
-            list.Add("LT");
-            list.Add("RT");
+                "LT",
+                "RT",
 
-            list.Add("LS");
-            list.Add("RS");
+                "LS",
+                "RS",
 
-            list.Add("");
-            list.Add("LS");
+                "",
+                "LS"
+            };
 
             var result = XInputButtonFlagLookup.ConvertButtons(list);
 
@@ -93,23 +95,25 @@ namespace CTMK_TESTS
         [TestMethod]
         public void XInputButtonFlagLookupConvertListButtonStateButtonButtonTest()
         {
-            var list = new List<ButtonState>();
-            list.Add(new ButtonState("A"));
-            list.Add(new ButtonState("B"));
-            list.Add(new ButtonState("X"));
-            list.Add(new ButtonState("Y"));
+            var list = new List<ButtonState>
+            {
+                new ButtonState("A"),
+                new ButtonState("B"),
+                new ButtonState("X"),
+                new ButtonState("Y"),
 
-            list.Add(new ButtonState("START"));
-            list.Add(new ButtonState("BACK"));
+                new ButtonState("START"),
+                new ButtonState("BACK"),
 
-            list.Add(new ButtonState("LT"));
-            list.Add(new ButtonState("RT"));
+                new ButtonState("LT"),
+                new ButtonState("RT"),
 
-            list.Add(new ButtonState("LS"));
-            list.Add(new ButtonState("RS"));
+                new ButtonState("LS"),
+                new ButtonState("RS"),
 
-            list.Add(new ButtonState(""));
-            list.Add(new ButtonState("LS"));
+                new ButtonState(""),
+                new ButtonState("LS")
+            };
 
             var result = XInputButtonFlagLookup.ConvertButtons(list);
 
